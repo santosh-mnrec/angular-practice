@@ -1,13 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-export interface Post {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
-
 @Injectable()
 export class PostApiService {
   private baseUrl: string;
