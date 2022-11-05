@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Post, TodoApiService } from './todo.api-service';
+import { PostApiService } from './post.api-service';
 
 @Injectable()
 export class PostService {
@@ -10,10 +10,10 @@ export class PostService {
   singlePostSource$ = this.singleTodoSubject.asObservable();
 
   private posts: Post[] = [];
-  constructor(private todoApiService: TodoApiService) {}
+  constructor(private postApiService: PostApiService) {}
 
   initialize() {
-    this.todoApiService.loadAll().subscribe((data) => {
+    this.postApiService.loadAll().subscribe((data) => {
       this.posts = data;
       this.todosSubject.next([...this.posts]);
     });
