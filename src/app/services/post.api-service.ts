@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-export interface Todo {
+export interface Post {
   userId: number;
   id: number;
   title: string;
-  completed: boolean;
+  body: string;
 }
 
 @Injectable()
-export class TodoApiService {
+export class PostApiService {
   private baseUrl: string;
 
   constructor(private http: HttpClient) {
@@ -17,10 +17,10 @@ export class TodoApiService {
   }
 
   loadAll() {
-    return this.http.get<Todo[]>(`${this.baseUrl}/todos`);
+    return this.http.get<Post[]>(`${this.baseUrl}/posts`);
   }
 
-  create(todo: Todo) {
+  create(todo: Post) {
     return this.http.post(`${this.baseUrl}/todos`, JSON.stringify(todo));
   }
 

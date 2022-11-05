@@ -3,23 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
-import { TodoListComponent } from './components/todo-list/todo-list.component';
-
+import { PostListComponent } from './components/pos-list/post-list.component';
+import { PostComponent } from './components/post/post.component';
 import { HttpClientModule } from '@angular/common/http';
-import { TodoApiService } from './services/todo.api-service';
-import { TodoService } from './services/todo-service';
-import { TodoComponent } from './components/todo/todo.component';
+import { PostApiService } from './services/post.api-service';
+import { PostService } from './services/post-service';
 
 @NgModule({
   imports: [BrowserModule, ReactiveFormsModule, FormsModule, HttpClientModule],
-  declarations: [
-    AppComponent,
-    HelloComponent,
-    TodoListComponent,
-    TodoComponent,
-  ],
+  declarations: [AppComponent, PostListComponent, PostComponent],
   bootstrap: [AppComponent],
-  providers: [TodoApiService, TodoService],
+  providers: [PostApiService, PostService],
 })
 export class AppModule {}
