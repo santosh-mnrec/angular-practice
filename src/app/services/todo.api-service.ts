@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
 
 export interface Todo {
-  id: number | string;
-
-  value: string;
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
 }
 
 @Injectable()
@@ -13,7 +13,7 @@ export class TodoApiService {
   private baseUrl: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = 'https://56e05c3213da80110013eba3.mockapi.io/api';
+    this.baseUrl = 'https://jsonplaceholder.typicode.com';
   }
 
   loadAll() {

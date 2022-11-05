@@ -1,14 +1,17 @@
-<div>
+<div class="row">
   <form [formGroup]="todoForm" (submit)="onSubmit()">
-    <button>Add Item</button><br />
+    <button class="btn btn-success">Add Item</button><br />
   </form>
 
-  <!-- <p>
-    {{ singleTodo | async | json }}
-  </p> -->
+  <div class="col-md-8">
+    <ul class="list-group" *ngFor="let todo of todos$ | async">
+      <li class="list-group-item">
+        <p>{{ todo.title }}</p>
+      </li>
+    </ul>
+  </div>
 
-  <div *ngFor="let todo of todos$ | async">
-    {{ todo.id }} {{ todo.value }}
-    <button (click)="deleteTodo(todo.id)">x</button>
+  <div class="col-md-4">
+    <app-todo [todo]="singleTodo"></app-todo>
   </div>
 </div>

@@ -9,10 +9,16 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TodoApiService } from './services/todo.api-service';
 import { TodoService } from './services/todo-service';
+import { TodoComponent } from './components/todo/todo.component';
 
 @NgModule({
   imports: [BrowserModule, ReactiveFormsModule, FormsModule, HttpClientModule],
-  declarations: [AppComponent, HelloComponent, TodoListComponent],
+  declarations: [
+    AppComponent,
+    HelloComponent,
+    TodoListComponent,
+    TodoComponent,
+  ],
   bootstrap: [AppComponent],
   providers: [TodoApiService, TodoService],
 })
